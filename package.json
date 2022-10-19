@@ -2,7 +2,7 @@
   "name": "thrive-webpage",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://PadoSensei.github.io/thrive-webpage",
+  "homepage": "https://PadoSensei.github.io/thrive-webpage/",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@mantine/core": "^5.5.5",
