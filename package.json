@@ -1,5 +1,6 @@
 {
   "name": "thrive-webpage",
+  "homepage": "https://www.abracce.net/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
