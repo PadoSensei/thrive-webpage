@@ -1,67 +1,25 @@
-import { useState } from 'react';
-import {
-  AppShell,
-  Navbar,
-  Header,
-  Footer,
-  Aside,
-  Text,
-  MantineProvider,
-  MediaQuery,
-  Burger,
-  useMantineTheme,
-} from '@mantine/core';
+import { AppShell, Header, Container, Group, Button, Stack, Footer, Text} from '@mantine/core';
+import { HeroImageBackground } from './components/HeroImageBackground';
+import { StoryCarousel } from './components/StoryCarousel';
+import { TestimonialCarousel } from './components/TestimonialCarousel';
+import { TextInfoLayer } from './components/TextInfoLayer';
 
-
-
-export default function AppShellDemo() {
-  const theme = useMantineTheme();
-  const [opened, setOpened] = useState(false);
+export default function App () {
   return (
     <AppShell
-      styles={{
-        main: {
-          background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
-        },
-      }}
-      navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="sm"
-      navbar={
-        <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-          <Text>Application navbar</Text>
-        </Navbar>
-      }
-      aside={
-        <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-          <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-            <Text>Application sidebar</Text>
-          </Aside>
-        </MediaQuery>
-      }
-      footer={
-        <Footer height={60} p="md">
-          Application footer
-        </Footer>
-      }
-      header={
-        <Header height={70} p="md">
-          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-              <Burger
-                opened={opened}
-                onClick={() => setOpened((o) => !o)}
-                size="sm"
-                color={theme.colors.gray[6]}
-                mr="xl"
-              />
-            </MediaQuery>
-
-            <Text>Application header</Text>
-          </div>
-        </Header>
-      }
+      padding="md"
+      header={<Header height={60} p="xs">Theme toggle and language button on left Header for logo and name in center. Donate Button needs to be added and pushed to the right.</Header>}
+      footer={<Footer height={30} p="xs">Do we need a footer?</Footer>}
+      styles={(theme) => ({
+        main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
+      })}
     >
-      <Text>Resize app to see responsive navbar in action</Text>
+      <Stack justify="space-between">
+        <HeroImageBackground />
+        <StoryCarousel />
+        <TextInfoLayer />
+        <TestimonialCarousel />
+      </Stack>
     </AppShell>
   );
 }
